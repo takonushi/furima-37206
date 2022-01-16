@@ -16,7 +16,7 @@
                 <mxCell id="5" value="itemsテーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="415" y="80" width="160" height="170" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value=":name string&#10;:explanation text&#10;:category integer&#10;:condition integer&#10;:charge integer&#10;:area integer&#10;:number_of_days integer&#10;:price integer&#10;:user references" style="align=left;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="5" vertex="1">
+                <mxCell id="6" value=":name string&#10;:explanation text&#10;:category_id integer&#10;:condition_id integer&#10;:charge_id integer&#10;:prefecture_id integer&#10;:number_of_days_id integer&#10;:price integer&#10;:user references" style="align=left;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="5" vertex="1">
                     <mxGeometry y="30" width="160" height="140" as="geometry"/>
                 </mxCell>
                 <mxCell id="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="5" source="6" target="6" edge="1">
@@ -40,7 +40,7 @@
                 <mxCell id="12" value="sendingsテーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="416" y="350" width="160" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value=":postal_code string&#10;:prefecture integer&#10;:city string&#10;:house_number string&#10;:building_name string&#10;:telephone_number&#10;:order references" style="align=left;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="12" vertex="1">
+                <mxCell id="13" value=":postal_code string&#10;:prefecture_id integer&#10;:city string&#10;:house_number string&#10;:building_name string&#10;:telephone_number&#10;:order references" style="align=left;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="12" vertex="1">
                     <mxGeometry y="30" width="160" height="130" as="geometry"/>
                 </mxCell>
                 <mxCell id="14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="12" source="13" target="13" edge="1">
