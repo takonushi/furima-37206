@@ -10,6 +10,6 @@ class User < ApplicationRecord
   validates :first_name_reading, presence: true, format: {with: /\A[ァ-ヶー]+\z/, message: "is invalid. Input full-width katakana characters."}
   validates :last_name_reading, presence: true, format: {with: /\A[ァ-ヶー]+\z/, message: "is invalid. Input full-width katakana characters."}
   validates :birth_date, presence: true
-  validates :nickname, presence: true
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "は半角英数を両方含む必要があります"}
 
 end
