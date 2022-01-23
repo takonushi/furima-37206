@@ -1,5 +1,5 @@
 class Condition < ActiveHash::Base
-  self.date = [
+  self.data = [
     { id: 0, name: '--'},
     { id: 1, name: '新品・未使用'},
     { id: 2, name: '未使用に近い'},
@@ -8,3 +8,8 @@ class Condition < ActiveHash::Base
     { id: 5, name: '傷や汚れあり'},
     { id: 6, name: '全体的に状態が悪い'}
   ]
+
+  include ActiveHash::Associations
+  has_many :items
+
+end
