@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-
   belongs_to :user
   has_one_attached :image
 
@@ -18,7 +17,6 @@ class Item < ApplicationRecord
   validates :charge_id, numericality: { other_than: 0, message: "can't be blank" }
   validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
   validates :number_of_days_id, numericality: { other_than: 0, message: "can't be blank" }
-  validates :price, presence: true, numericality: {only_integer: true,  greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is invalid"}
-
-
+  validates :price, presence: true,
+                    numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is invalid' }
 end
