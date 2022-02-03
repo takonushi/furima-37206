@@ -2,15 +2,16 @@ class OrdersController < ApplicationController
   
   def index
     @item = Item.find(params[:item_id])
+    @order_sending = OrderSending.new
   end
 
   def create
-    @order = Order.new(order_params)
-    if @order.valid?
+    binding.pry
+    @order_sending = OrderSending.new(order_params)
+    if @order_sending.valid?
       pay_item
-      @order.save
-      Sending.create(sending_params)
-      return redirect_to root_path
+      @order_sending.save
+      redirect_to root_path
     else
       render 'index'
     end
@@ -18,14 +19,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    #params.require(:order).permit(:item_id).merge(user_id: current_user.id)の
-    #記載だと「param is missing or the value is empty:order」というエラーになる。
-    #別途、確認が必要。
-    params.permit(:item_id).merge(user_id: current_user.id, token: params[:token], price: params[:price])
-  end
-
-  def sending_params
-    params.permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :telephone_number).merge(order_id: @order.id)
+    params.require(:order_sending).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :telephone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token], price: params[:price])
   end
 
   def pay_item
