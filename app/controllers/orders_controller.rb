@@ -6,14 +6,14 @@ class OrdersController < ApplicationController
   end
 
   def create
-    binding.pry
     @order_sending = OrderSending.new(order_params)
     if @order_sending.valid?
       pay_item
       @order_sending.save
       redirect_to root_path
     else
-      render 'index'
+      @item = Item.find(params[:item_id])
+      render :index
     end
   end
 
