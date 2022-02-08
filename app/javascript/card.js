@@ -18,12 +18,9 @@ const pay = () => {
       Payjp.createToken(card, (status, response) => {
         if (status == 200) {
           const token = response.id;
-          const price = JSON.parse(document.getElementById('price_info').dataset.json);
           const renderDom = document.getElementById("charge-form");
           const tokenObj = `<input value=${token} name='token' type="hidden">`;
-          const priceObj = `<input value=${price} name='price' type="hidden"> `;
           renderDom.insertAdjacentHTML("beforeend", tokenObj);
-          renderDom.insertAdjacentHTML("beforeend", priceObj);
         }
 
         document.getElementById("card-number").removeAttribute("name");

@@ -63,6 +63,19 @@ RSpec.describe OrderSending, type: :model do
         expect(@order_sending.errors.full_messages).to include('Telephone number is invalid. Telephone number must be 10 or 11 single-byte numbers')
       end
 
+      it '電話番号の桁数が9桁以下の半角数値では登録ができない' do
+        @order_sending.telephone_number = '080111222'
+        @order_sending.valid?
+        expect(@order_sending.errors.full_messages).to include('Telephone number is invalid. Telephone number must be 10 or 11 single-byte numbers')
+      end
+
+      it '電話番号の桁数が12桁以上の半角数値では登録ができない' do
+        @order_sending.telephone_number = '0801111222211'
+        @order_sending.valid?
+        expect(@order_sending.errors.full_messages).to include('Telephone number is invalid. Telephone number must be 10 or 11 single-byte numbers')
+      end
+
+
       it 'userが紐づいていないと登録ができない' do
         @order_sending.user_id = nil
         @order_sending.valid?
